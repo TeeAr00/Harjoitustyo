@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -12,12 +13,7 @@ public class FileService {
     
 
     // public void backupS() throws IOException {
-    // FileWriter fw = new FileWriter(fileStudents, true);
-    // try {
-    // fileStudents.createNewFile();
-    // } catch (IOException e) {
-    // System.out.println("error");
-    // }
+    
     // for (Student student : Service.students) {
     // fw.write(student.getName() + " (" + student.getId() + ")" +
     // System.lineSeparator());
@@ -26,12 +22,7 @@ public class FileService {
     // }
 
     // public void backupC() throws IOException {
-    // FileWriter fw = new FileWriter(fileCourses, true);
-    // try {
-    // fileCourses.createNewFile();
-    // } catch (IOException e) {
-    // System.out.println("error");
-    // }
+    
     // for (Course course : Service.courses) {
     // fw.write(course.getName() + " (teacher: " + course.getTeacher() + ", " +
     // course.getType() + ", id: " + course.getId() + ")" + System.lineSeparator());
@@ -39,9 +30,9 @@ public class FileService {
     // fw.close();
     // }
 
-    public void listBackupStudents() throws FileNotFoundException {
+    public void listBackupStudents() throws IOException {
         Scanner scanner = new Scanner(fileStudents);
-
+       
         if (scanner.hasNextLine() || !Service.students.isEmpty()) {
             while (scanner.hasNextLine()) {
                 String studentData = scanner.nextLine();
@@ -53,8 +44,9 @@ public class FileService {
         scanner.close();
     }
 
-    public void listBackupCourses() throws FileNotFoundException {
+    public void listBackupCourses() throws IOException {
         Scanner scanner = new Scanner(fileCourses);
+       
 
         if (scanner.hasNextLine() || !Service.courses.isEmpty()) {
             while (scanner.hasNextLine()) {
@@ -80,6 +72,14 @@ public class FileService {
 
     public void makeStudents() throws IOException {
         // Make student objects backup textfile
+        FileWriter fw = new FileWriter(fileStudents, true);
+        try {
+        fileStudents.createNewFile();
+        } catch (IOException e) {
+        System.out.println("error");
+        }
+        fw.close();
+    
         BufferedReader br = new BufferedReader(new FileReader(fileStudents));
         String line;
         while ((line = br.readLine()) != null) {
@@ -96,6 +96,13 @@ public class FileService {
     }
 
     public void makeCourses() throws NumberFormatException, IOException {
+        FileWriter fw = new FileWriter(fileCourses, true);
+        try {
+        fileCourses.createNewFile();
+        } catch (IOException e) {
+        System.out.println("error");
+        }
+        fw.close();
         BufferedReader br = new BufferedReader(new FileReader(fileCourses));
         String line;
         while ((line = br.readLine()) != null) {

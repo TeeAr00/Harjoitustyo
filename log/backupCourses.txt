@@ -1,3 +1,0 @@
-Kurssi, 1, Pekka, online, linkki1
-Kurssi2, 2, Simo, campus, 231
-kurssi3, 3, Piia, campus, 541

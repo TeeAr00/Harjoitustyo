@@ -84,7 +84,7 @@ public class Service {
     }
 
     //List all existing students
-    public void listStudents() throws FileNotFoundException{
+    public void listStudents() throws IOException{
         System.out.println("");
         
             // for (Student student : students) {
@@ -223,7 +223,7 @@ public class Service {
     }
     
     //List all existing courses
-    public void listCourses() throws FileNotFoundException{
+    public void listCourses() throws IOException{
         System.out.println("");
         // for (Course course : courses) {
         //     if(course.courseStudents.size() == 0){
@@ -243,7 +243,7 @@ public class Service {
         try {
             fs.listBackupCourses();
             for (Course course : courses) {
-                System.out.println(course.courseStudents.get(0).getName());
+                System.out.println(course.getCourseStudents());
             }
         } catch (FileNotFoundException e) {
             System.out.println("Course files not found");
