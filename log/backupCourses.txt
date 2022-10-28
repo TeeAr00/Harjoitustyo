@@ -1,1 +1,1 @@
-Kurssi, 1, Pekka, campus, A321
+Java-ohjelmointi, 1, Reima, campus, 1A123
